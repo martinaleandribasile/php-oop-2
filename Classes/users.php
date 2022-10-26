@@ -4,11 +4,12 @@ class User
     public $name;
     public $surname;
     public $date_birth;
+    public $byproducts = [];
     protected $mail;
     protected $account_create = false;
     protected $password;
     protected $creditcard;
-    private $discount = 0;
+    protected $discount = 0;
     public function __construct($name, $surname, $date)
     {
         $this->name = $name;
@@ -50,6 +51,17 @@ class User
             };
         };
     }
+
+    function shopBag($product)
+    {
+        $this->byproducts[] = $product;
+        var_dump($this->byproducts[0]->price);
+        if ($this->discount == 0) {
+            foreach ($this->byproducts as $prod) {
+                $prod->price = $prod->price - ($prod->price * 20 / 100);
+            }
+        }
+    }
 }
 
 
@@ -61,6 +73,8 @@ class CreditCard
         $this->expdate = $date;
     }
 }
-
+include __DIR__ . '\products.php';
 $account = new User('Mario', 'Rossi', '13-3-1967');
+$account->shopBag($fuffy);
+
 var_dump($account);

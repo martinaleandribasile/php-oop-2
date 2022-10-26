@@ -79,6 +79,6 @@ class Kennels extends Products
 }
 
 
-$fuffy = new Game('fuffy', '35.00euro', 'cane', 'gomma', 'medium');
+$fuffy = new Game('fuffy', 35.00, 'cane', 'gomma', 'medium');
 $fuffy->setId();
 var_dump($fuffy);
