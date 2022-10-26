@@ -56,7 +56,7 @@ class User
     {
         $this->byproducts[] = $product;
         var_dump($this->byproducts[0]->price);
-        if ($this->discount == 0) {
+        if ($this->discount == '20%') {
             foreach ($this->byproducts as $prod) {
                 $prod->price = $prod->price - ($prod->price * 20 / 100);
             }
