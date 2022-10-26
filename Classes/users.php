@@ -16,6 +16,7 @@ class User
         $this->date_birth = $date;
         $this->setAccount();
         $this->setCC($_POST['ccdate']);
+        $this->discount();
     }
 
     function setAccount()
@@ -24,7 +25,6 @@ class User
             $this->mail = $_POST['email'];
             $this->password = $_POST['psw'];
             $this->account_create = true;
-            $this->discount();
         } elseif ($_POST['email'] = '' && $_POST['psw'] = '') {
             $this->account_create = false;
             $this->mail = null;
