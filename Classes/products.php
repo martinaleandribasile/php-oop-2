@@ -3,7 +3,7 @@ class Products
 {
     public $name;
     public $price;
-    public $id;
+    public $id = 'xxx111';
 
 
     public function __construct($name, $price)
@@ -21,6 +21,10 @@ class Products
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+    function setId()
+    {
+        $this->id = $this->id . $this->name;
     }
 }
 
@@ -73,3 +77,8 @@ class Kennels extends Products
         $this->age_size_range = $size;
     }
 }
+
+
+$fuffy = new Game('fuffy', '35.00euro', 'cane', 'gomma', 'medium');
+$fuffy->setId();
+var_dump($fuffy);
